@@ -30,7 +30,8 @@ urlpatterns = [
     # path('create-game/', CreateGameAPIView.as_view(), name='create-game'),
     path('games/', GamesView.as_view(), name='games'),
     path('game-create/', GameCreateAPIView.as_view(), name='games'),
-    path('studios/', StudiosListAPIView.as_view(), name='games'),
+    path('games_list/', GameListAPIView.as_view(), name='games_list'),
+    path('studios/', StudioListAPIView.as_view(), name='studios'),
     
     path('users/', include('usersapp.urls')),
     path('collections/', include('collection.urls')),

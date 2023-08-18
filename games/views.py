@@ -6,6 +6,7 @@ from rest_framework.generics import ListAPIView, \
 from rest_framework.viewsets import ModelViewSet
 from .models import *
 from .serializers import *
+from .filters import GameFilter, StudioFilter
 
 
 # def games_list(request):
@@ -15,9 +16,9 @@ from .serializers import *
 #     return JsonResponse(data, safe=False)
 
 
-class StudiosListAPIView(ListAPIView):
-    queryset = Studio.objects.all()
-    serializer_class = StudioSerializer
+# class StudiosListAPIView(ListAPIView):
+#     queryset = Studio.objects.all()
+#     serializer_class = StudioSerializer
 
 
 # class CreateGameAPIView(CreateAPIView):
@@ -60,3 +61,13 @@ class GameCreateAPIView(APIView):
                 data=response_data,
                 status=400
             )
+
+class GameListAPIView(ListAPIView):
+    queryset = Game.objects.all()
+    serializer_class = GameSerializer
+    filterset_class = GameFilter
+
+class StudioListAPIView(ListAPIView):
+    queryset = Studio.objects.all()
+    serializer_class = StudioSerializer
+    filterset_class = StudioFilter
